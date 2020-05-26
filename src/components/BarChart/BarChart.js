@@ -18,10 +18,10 @@ const BarChart = ({ data, region }) => {
               labels: ["Confirmés", "Décès"],
               datasets: [
                 {
-                  label: "People",
+                  label: "cas",
                   backgroundColor: [
-                    "rgba(129, 233, 121, 0.5)",
-                    "rgba(249, 87, 56, 0.6)",
+                    "rgba(35, 87, 137, 0.7)",
+                    "rgba(193, 41, 46, 0.8)",
                   ],
                   data: [cases.confirmés, cases.décès],
                 },
@@ -32,10 +32,7 @@ const BarChart = ({ data, region }) => {
               responsive: true,
               title: {
                 display: true,
-                text:
-                  "Nombre de cas confirmés et décès du coronavirus (COVID-19)",
               },
-              scales: { gridLines: { color: "rgba(129, 233, 121, 0.5)" } },
             }}
             canvas
           />
@@ -45,10 +42,10 @@ const BarChart = ({ data, region }) => {
   );
 };
 
-
 BarChart.propTypes = {
   data: PropTypes.array,
   region: PropTypes.string
 }
+
 
 export default BarChart;

@@ -1,0 +1,27 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #235789;
+}
+
+h3 {
+    color: white !important;
+}
+
+
+.data {
+    position: relative;
+}
+
+#loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#loader {
+    align-items: center;
+}

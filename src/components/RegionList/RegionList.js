@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 
 const RegionList = ({ data, regionChange }) => {
   return (
-    <>
-      <select className="custom-select m-3 w-30"
+    <div className="input-group">
+      <select className="custom-select mt-3"
       onChange={regionChange}
       >
         <option value="Total">Régions</option>
@@ -14,13 +14,13 @@ const RegionList = ({ data, regionChange }) => {
           </option>
         ))}
       </select>
-    </>
+    </div>
   );
 };
 
 
 RegionList.propTypes = {
-  data: PropTypes.string,
+  data: PropTypes.array,
   regionChange: PropTypes.func
 }
 

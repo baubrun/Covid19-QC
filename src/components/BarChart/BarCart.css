@@ -1,5 +1,8 @@
+
 .barCart-container {
+    background-color: #fff;
     position: relative;
-    height: 30vh; 
-    width: 70vw;
+    margin-left: 5%;
+    margin-top: 5px;
+    width: 90%;
 }

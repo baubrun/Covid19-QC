@@ -1,10 +1,10 @@
-
 import React, { Component } from "react";
 import axios from "axios";
 import { RegionList } from "./components/RegionList";
 import Loader from "react-loader-spinner";
 import { Card } from "./components/Card";
 import BarChart from "./components/BarChart/BarChart";
+import "./App.css";
 
 const url = "http://localhost:5000/covid19qc/api";
 
@@ -47,44 +47,50 @@ class App extends Component {
   render() {
     const { data, date, loading, region } = this.state;
     return (
-      <div>
-        {loading ? (
-          <Loader
-            id="loader"
-            color="#197bbd"
-            height={40}
-            type="Puff"
-            width={40}
-          />
-        ) : (
-          <div className="container">
-          <h1>Situation du coronavirus (COVID-19) au Québec</h1>
-            <div className="row">
-              <div className="col">
-                <Card
-                  data={data}
-                  date={date}
-                  region={region}
-                  loading={loading}
-                  title="Nombre de cas confirmés par région"
-                  type="confirmés"
-                />
-              </div>
-              <div className="col">
-                <Card
-                  data={data}
-                  date={date}
-                  region={region}
-                  loading={loading}
-                  title="Nombre de décès par région"
-                  type="décès"
-                />
-              </div>
+      <div className="container">
+        <h3 className="text-center">
+          Situation du coronavirus (COVID-19) au Québec
+        </h3>
+        <div className="data">
+          {loading ? (
+            <div id="loader">
+              <Loader
+                
+                color="white"
+                height={200}
+                type="Puff"
+                width={200}
+              />
             </div>
-            <RegionList data={data} regionChange={this.regionChange} />
-            <BarChart data={data} region={region}/>
-          </div>
-        )}
+          ) : (
+            <>
+              <div className="row">
+                <div className="col">
+                  <Card
+                    data={data}
+                    date={date}
+                    region={region}
+                    loading={loading}
+                    title="Nombre de cas confirmés par région"
+                    type="confirmés"
+                  />
+                </div>
+                <div className="col">
+                  <Card
+                    data={data}
+                    date={date}
+                    region={region}
+                    loading={loading}
+                    title="Nombre de décès par région"
+                    type="décès"
+                  />
+                </div>
+              </div>
+              <RegionList data={data} regionChange={this.regionChange} />
+              <BarChart data={data} region={region} />
+            </>
+          )}
+        </div>
       </div>
     );
   }

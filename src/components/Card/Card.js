@@ -1,5 +1,8 @@
 import React from "react";
-import CountUp from "react-countup"
+import CountUp from "react-countup";
+import PropTypes from "prop-types"
+import "./Card.css"
+
 
 const Card = ({ data, date, title, type, region }) => {
   const cases = data.find((d) => d.région === region);
@@ -9,18 +12,17 @@ const Card = ({ data, date, title, type, region }) => {
       {!region ? (
         ""
       ) : (
-        <div className="card" style={cardStyle}>
+        <div className="card text-center card-style" >
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
-            <p className="card-text text-muted">
-              <CountUp 
-              end={cases[type]}
-              separator=" "
-              start={0}
-              useEasing={true}
+            <p className="card-text numbers">
+              <CountUp
+                end={cases[type]}
+                separator=" "
+                start={0}
               />
-              </p>
-            <p className="card-text">{date}</p>
+            </p>
+            <p className="card-text date">{date}</p>
           </div>
         </div>
       )}
@@ -28,8 +30,16 @@ const Card = ({ data, date, title, type, region }) => {
   );
 };
 
-const cardStyle = {
-  width: "18rem",
-};
+
+
+Card.propTypes = {
+  data: PropTypes.array,
+  date: PropTypes.string,
+  title: PropTypes.string,
+  type: PropTypes.string,
+  region: PropTypes.string
+}
+
+
 
 export default Card;
