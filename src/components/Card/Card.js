@@ -1,6 +1,5 @@
 import React from "react";
-import CountUp from "react-countup";
-import PropTypes from "prop-types"
+import CountUp from "react-countup"
 
 const Card = ({ data, date, title, type, region }) => {
   const cases = data.find((d) => d.région === region);
@@ -14,14 +13,13 @@ const Card = ({ data, date, title, type, region }) => {
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text text-muted">
-              <CountUp
-                duration={1000}
-                easingFn={true}
-                end={cases[type]}
-                separator=" "
-                start={0}
+              <CountUp 
+              end={cases[type]}
+              separator=" "
+              start={0}
+              useEasing={true}
               />
-            </p>
+              </p>
             <p className="card-text">{date}</p>
           </div>
         </div>
@@ -33,16 +31,5 @@ const Card = ({ data, date, title, type, region }) => {
 const cardStyle = {
   width: "18rem",
 };
-
-
-Card.propTypes = {
-  data: PropTypes.array,
-  date: PropTypes.string,
-  title: PropTypes.string,
-  type: PropTypes.string,
-  region: PropTypes.string
-}
-
-
 
 export default Card;
