@@ -5,19 +5,18 @@ import "./Card.css"
 
 
 const Card = ({ data, date, title, type, region }) => {
-  const cases = data.find((d) => d.région === region);
 
   return (
     <>
-      {!region ? (
-        ""
-      ) : (
+       {!region ? ( 
+         ""
+       ) : ( 
         <div className="card text-center card-style" >
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text numbers">
               <CountUp
-                end={cases[type]}
+                end={data[type]}
                 separator=" "
                 start={0}
               />
@@ -25,7 +24,8 @@ const Card = ({ data, date, title, type, region }) => {
             <p className="card-text date">{date}</p>
           </div>
         </div>
-      )}
+       )
+      }
     </>
   );
 };

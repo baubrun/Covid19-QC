@@ -5,8 +5,10 @@ import Loader from "react-loader-spinner";
 import { Card } from "./components/Card";
 import BarChart from "./components/BarChart/BarChart";
 import "./App.css";
+import { Title } from "./components/Title";
+import getData from "./components/api";
 
-const url = "http://localhost:5000/covid19qc/api";
+// const url = "http://localhost:5000/covid19qc/api";
 
 class App extends Component {
   constructor(props) {
@@ -21,76 +23,80 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getData();
+    this.fetchData();
   }
 
-  getData = async () => {
+
+  fetchData = async () => {
     this.setState({ loading: true });
-    const response = await axios.get(url);
-    const body = response.data;
 
-    this.setState({ data: body });
-
-    this.setState({ date: body[0].date });
-
-    this.setState({ region: body.slice(-1)[0].région });
-
+    try {
+      const body = await getData();
+        this.setState({ data: body });
+        this.setState({ date: body[0].date });
+        this.setState({ region: body.slice(-1)[0].région });
+        this.setState({ loading: false });
     setTimeout(() => {
       this.setState({ loading: false });
-    }, 1000);
+      }, 800);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+
   regionChange = (event) => {
-    this.setState({ region: event.target.value });
+    const region = event.target.value
+    this.setState({ region });
+  };
+
+
+  showData = () => {
+    const { data, date, region } = this.state;
+      const cases = data.find((d) => d.région === region);
+
+    return (
+      <div className="data">
+        <div className="row">
+          <div className="col">
+            <Card
+              data={cases}
+              date={date}
+              region={region}
+              title="Nombre de cas confirmés par région"
+              type="confirmés"
+            />
+          </div>
+          {
+            <div className="col">
+              <Card
+                data={cases}
+                date={date}
+                region={region}
+                title="Nombre de décès par région"
+                type="décès"
+              />
+            </div>
+          }
+        </div>
+        <RegionList data={data} regionChange={this.regionChange} />
+        <BarChart data={cases} region={region} />
+      </div>
+    );
   };
 
   render() {
-    const { data, date, loading, region } = this.state;
+    
     return (
       <div className="container">
-        <h3 className="text-center">
-          Situation du coronavirus (COVID-19) au Québec
-        </h3>
-        <div className="data">
-          {loading ? (
-            <div id="loader">
-              <Loader
-                
-                color="white"
-                height={200}
-                type="Puff"
-                width={200}
-              />
-            </div>
-          ) : (
-            <>
-              <div className="row">
-                <div className="col">
-                  <Card
-                    data={data}
-                    date={date}
-                    region={region}
-                    loading={loading}
-                    title="Nombre de cas confirmés par région"
-                    type="confirmés"
-                  />
-                </div>
-                <div className="col">
-                  <Card
-                    data={data}
-                    date={date}
-                    region={region}
-                    loading={loading}
-                    title="Nombre de décès par région"
-                    type="décès"
-                  />
-                </div>
-              </div>
-              <RegionList data={data} regionChange={this.regionChange} />
-              <BarChart data={data} region={region} />
-            </>
-          )}
-        </div>
+        <Title title="Situation du Coronavirus (COVID-19) au Québec" />
+        {this.state.loading ? (
+          <div id="loader">
+            <Loader color="white" height={200} type="Puff" width={200} />
+          </div>
+        ) : (
+          this.showData()
+        )}
       </div>
     );
   }
