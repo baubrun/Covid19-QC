@@ -3,14 +3,12 @@ import { Bar } from "react-chartjs-2";
 import "./BarCart.css";
 import PropTypes from "prop-types";
 
-const BarChart = ({ data, region }) => {
+const BarChart = ({ data }) => {
   console.log(data)
   return (
     <>
-      {/* {data ( */}
-        {/* "" */}
-      {/* // ) : ( */}
-      {data.length > 0 && (
+      {data.length < 1 ? ""
+        : (
         <div className="BarChart">
           <Bar
             data={{
@@ -36,9 +34,10 @@ const BarChart = ({ data, region }) => {
             canvas
           />
         </div>
-)}
-
-      {/* // )} */}
+        )
+// {/* )} */}
+       
+          }
     </>
   );
 };

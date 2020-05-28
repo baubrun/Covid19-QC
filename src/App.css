@@ -2,8 +2,9 @@
     font-family: 'Roboto', sans-serif;
 }
 
+
 body {
-    background-color: #235789;
+    background-color: #235789 !important;
 }
 
 
@@ -15,10 +16,8 @@ body {
 #loader {
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
+    margin-top: 20%;
+
 }
 
-#loader {
-    align-items: center;
-}

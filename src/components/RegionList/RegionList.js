@@ -1,19 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./RegionList.css";
 
-const RegionList = ({ data, regionChange }) => {
-  
+
+const RegionList = ({ data, regionChange, loading }) => {
   return (
-    <div className="input-group">
-      <select className="custom-select mt-3" onChange={regionChange}>
-        <option value="Total" defaultValue="Total">Régions</option>
-        {data.slice(0,-1).map((d, idx) => (
-          <option key={idx} value={d.région}>
-            {d.région}
-          </option>
-        ))}
-      </select>
-    </div>
+    <>
+      {!loading && (
+        <div id="list" 
+        className="input-group">
+          <select className="custom-select mt-3" onChange={regionChange}>
+            <option value="">
+              Régions
+            </option>
+            {data.map((d, idx) => (
+              <option key={idx} value={d.région}>
+                {d.région}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+    </>
   );
 };
 
@@ -23,4 +31,3 @@ RegionList.propTypes = {
 };
 
 export default RegionList;
-

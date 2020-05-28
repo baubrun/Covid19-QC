@@ -7,5 +7,6 @@
 
 .card-style {
     font-weight: bold;
+    animation: ease-in 2s;
 }
 

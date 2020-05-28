@@ -4,14 +4,8 @@ import PropTypes from "prop-types";
 import "./Card.css";
 
 const Card = ({ data, title, type}) => {
-  // let type = type
-  // console.log(data);
-  // if (data.length < 1) return "null"
-  // if (data.length < 1) {type = "Total"}
 
   return (
-
-    
     <>
     {data.length < 1? "" : (
 

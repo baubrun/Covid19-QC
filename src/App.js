@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { RegionList } from "./components/RegionList";
 import Loader from "react-loader-spinner";
 import { Card } from "./components/Card";
@@ -8,7 +7,6 @@ import "./App.css";
 import { Title } from "./components/Title";
 import { getData, getRegionData } from "./components/api";
 
-const url = "http://localhost:5000/covid19qc/api";
 
 class App extends Component {
   constructor(props) {
@@ -37,14 +35,9 @@ class App extends Component {
       this.setState({
         data: body,
       });
-      // this.setState({ date: body[0].date });
-      // this.setState({ region: body.slice(-1)[0].région });
-      this.setState({
-        loading: false,
-      });
-      // setTimeout(() => {
-      //   this.setState({ loading: false });
-      //   }, 800);
+      setTimeout(() => {
+        this.setState({ loading: false });
+        }, 900);
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +45,6 @@ class App extends Component {
 
   fetchRegionData = async (region) => {
     try {
-      // const newUrl =  url + "/" + region;
       const body = await getRegionData(region);
       this.setState({
         currentData: body,
@@ -64,29 +56,19 @@ class App extends Component {
   };
 
   regionChange = (event) => {
-    // const currentData = await getData(event)
     const region = event.target.value;
     this.setState({
       region,
     });
-    // console.log(region)
-    // console.log(typeof region)
-    // console.log(url + region)
     this.fetchRegionData(region);
   };
 
-  // regionChange = async  (region) => {
-  //   const data = await getData(region)
-  //   console.log(data)
-  //   this.setState({ region: region, data });
-  // };
 
   showData = () => {
     const { data, currentData } = this.state;
-    // const cases = data.find((d) => d.région === region);
 
     return (
-      <div className="data">
+      <div className=" container data">
         <div className="row">
           <div className="col">
             <Card
