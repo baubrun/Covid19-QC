@@ -1,39 +1,47 @@
 import React from "react";
 import { shallow } from "enzyme";
 import BarChart from "./BarChart";
-import { checkProps, findByTestAttr } from "../../../Utils";
+import { checkProps } from "../../../Utils";
+import toJson from "enzyme-to-json";
 
-const setUp = (props = {}) => {
-  const component = shallow(<BarChart {...props} />);
-  return component;
+const props = {
+  data: [
+    {
+      confirmés: 48,
+      date: "25 mai 2020",
+      décès: 2,
+      région: "Bas-Saint-Laurent",
+    }
+  ]
 };
 
+
 describe("BarChart Component", () => {
-  let component;
+  let wrapper;
   beforeEach(() => {
-    component = setUp();
+    wrapper = shallow(<BarChart {...props} />)
   });
 
+  it("should match snapshot ", () => {
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+
+
   it("should render NO errors", () => {
-    const wrapper = findByTestAttr(component, "BarChart");
-    expect(wrapper.length).toBe(1);
+    const component = wrapper.find("BarChart");
+    expect(component.length).toBe(1);
   });
 
   describe("Checking props", () => {
     it("should NOT throw error", () => {
-      const expectedProps = {
-        data: [
-          {
-            confirmés: 48,
-            date: "25 mai 2020",
-            décès: 2,
-            région: "Bas-Saint-Laurent",
-          },
-        ],
-        region: "",
-      };
-      const propsError = checkProps(component, expectedProps);
+      const propsError = checkProps(wrapper, props);
       expect(propsError).toBeUndefined();
     });
   });
+
+
+
+
+
 });

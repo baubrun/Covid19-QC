@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BarChart Component should match snapshot  1`] = `
+<Fragment>
+  <div
+    className="BarChart"
+  >
+    <Bar
+      canvas={true}
+      data={
+        Object {
+          "datasets": Array [
+            Object {
+              "backgroundColor": Array [
+                "rgba(35, 87, 137, 0.7)",
+                "rgba(193, 41, 46, 0.8)",
+              ],
+              "data": Array [
+                48,
+                2,
+              ],
+              "label": "cas",
+            },
+          ],
+          "labels": Array [
+            "Confirmés",
+            "Décès",
+          ],
+        }
+      }
+      options={
+        Object {
+          "legend": Object {
+            "display": false,
+          },
+          "responsive": true,
+          "title": Object {
+            "display": true,
+          },
+        }
+      }
+    />
+  </div>
+</Fragment>
+`;

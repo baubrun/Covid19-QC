@@ -4,7 +4,6 @@ import "./BarCart.css";
 import PropTypes from "prop-types";
 
 const BarChart = ({ data }) => {
-  console.log(data)
   return (
     <>
       {data.length < 1 ? ""
