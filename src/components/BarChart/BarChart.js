@@ -34,9 +34,7 @@ const BarChart = ({ data }) => {
             canvas
           />
         </div>
-        )
-// {/* )} */}
-       
+        )       
           }
     </>
   );
@@ -44,7 +42,6 @@ const BarChart = ({ data }) => {
 
 BarChart.propTypes = {
   data: PropTypes.array,
-  region: PropTypes.string,
 };
 
 export default BarChart;

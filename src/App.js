@@ -76,7 +76,7 @@ class App extends Component {
               title="Nombre de cas confirmés par région"
               type="confirmés"
             />
-          </div>{" "}
+          </div>
           {
             <div className="col">
               <Card
@@ -85,10 +85,10 @@ class App extends Component {
                 type="décès"
               />
             </div>
-          }{" "}
-        </div>{" "}
-        <RegionList data={data} regionChange={this.regionChange} />{" "}
-        <BarChart data={currentData} />{" "}
+          }
+        </div>
+        <RegionList data={data} regionChange={this.regionChange} />
+        <BarChart data={currentData} />
       </div>
     );
   };
@@ -96,14 +96,14 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Title title="Situation du Coronavirus (COVID-19) au Québec" />{" "}
+        <Title title="Situation du Coronavirus (COVID-19) au Québec" />
         {this.state.loading ? (
           <div id="loader">
-            <Loader color="white" height={200} type="Puff" width={200} />{" "}
+            <Loader color="white" height={200} type="Puff" width={200} />
           </div>
         ) : (
           this.showData()
-        )}{" "}
+        )}
       </div>
     );
   }
