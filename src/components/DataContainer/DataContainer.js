@@ -16,7 +16,6 @@ class DataContainer extends Component {
   fetchData = async (region) => {
     try {
       const data = await fetchDataApi(region);
-      console.log("data in fetchData :>> ", data);
       this.setState({
         data,
       });

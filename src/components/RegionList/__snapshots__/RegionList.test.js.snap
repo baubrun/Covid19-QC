@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegionList Component should match snapshot  1`] = `
+<Fragment>
+  <div
+    className="input-group"
+    id="list"
+  >
+    <select
+      className="custom-select mt-3"
+      onChange={[Function]}
+    >
+      <option
+        value=""
+      >
+        Régions
+      </option>
+      <option
+        key="0"
+        value="Bas-Saint-Laurent"
+      >
+        Bas-Saint-Laurent
+      </option>
+      <option
+        key="1"
+        value="Saguenay-Lac-Saint-Jean"
+      >
+        Saguenay-Lac-Saint-Jean
+      </option>
+      <option
+        key="2"
+        value="Capitale-Nationale"
+      >
+        Capitale-Nationale
+      </option>
+    </select>
+  </div>
+</Fragment>
+`;

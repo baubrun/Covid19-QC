@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getRegionNames } from "../../components/api";
 import { RegionList } from "../RegionList";
+import Spinner from "../Spinner/Spinner";
 
 export class RegionListContainer extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ export class RegionListContainer extends Component {
 
     this.state = {
       regions: [],
-      loading: false
+      loading: false,
     };
   }
   componentDidMount() {
@@ -22,7 +23,6 @@ export class RegionListContainer extends Component {
 
     try {
       const regions = await getRegionNames();
-      console.log("FetchRegions :>> ", regions);
       this.setState({
         regions,
       });
@@ -42,11 +42,17 @@ export class RegionListContainer extends Component {
   render() {
     const { loading, regions } = this.state;
     return (
-      <RegionList
-        loading={loading}
-        regions={regions}
-        regionChange={this.regionChange}
-      />
+      <>
+        {this.state.loading ? (
+            <Spinner />
+        ) : (
+          <RegionList
+            loading={loading}
+            regions={regions}
+            regionChange={this.regionChange}
+          />
+        )}
+      </>
     );
   }
 }

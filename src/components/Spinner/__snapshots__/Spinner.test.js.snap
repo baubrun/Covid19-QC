@@ -1,14 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Spinner Component should match title  1`] = `
-<Loader
-  className=""
-  color="white"
-  height={200}
-  style={Object {}}
-  timeout={0}
-  type="Puff"
-  visible={true}
-  width={200}
-/>
+exports[`Spinner Component should match snapshot  1`] = `
+<div
+  className="Spinner"
+>
+  <Loader
+    className=""
+    color="white"
+    height={200}
+    style={Object {}}
+    timeout={0}
+    type="Puff"
+    visible={true}
+    width={200}
+  />
+</div>
 `;

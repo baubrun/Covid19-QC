@@ -4,7 +4,6 @@ import "./RegionList.css";
 
 
 const RegionList = ({ regions, regionChange, loading }) => {
-  console.log("RegionList", regions);
   return (
     <>
       {!loading && (
@@ -29,6 +28,7 @@ const RegionList = ({ regions, regionChange, loading }) => {
 RegionList.propTypes = {
   data: PropTypes.array,
   regionChange: PropTypes.func,
+  loading: PropTypes.bool
 };
 
 export default RegionList;

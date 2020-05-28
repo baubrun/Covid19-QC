@@ -6,7 +6,7 @@ import toJson from "enzyme-to-json";
 describe("Spinner Component", () => {
 
 
-  it("should match title ", () => {
+  it("should match snapshot ", () => {
     const component = shallow(<Spinner />);
     expect(toJson(component)).toMatchSnapshot();
   });
