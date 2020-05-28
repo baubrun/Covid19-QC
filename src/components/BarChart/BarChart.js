@@ -4,12 +4,13 @@ import "./BarCart.css";
 import PropTypes from "prop-types";
 
 const BarChart = ({ data, region }) => {
-
+  console.log(data)
   return (
     <>
-      {!region ? (
-        ""
-      ) : (
+      {/* {data ( */}
+        {/* "" */}
+      {/* // ) : ( */}
+      {data.length > 0 && (
         <div className="BarChart">
           <Bar
             data={{
@@ -21,8 +22,7 @@ const BarChart = ({ data, region }) => {
                     "rgba(35, 87, 137, 0.7)",
                     "rgba(193, 41, 46, 0.8)",
                   ],
-                  // data: [cases.confirmés, cases.décès],
-                  data: [data.confirmés, data.décès],
+                  data: [data[0].confirmés, data[0].décès],
                 },
               ],
             }}
@@ -36,7 +36,9 @@ const BarChart = ({ data, region }) => {
             canvas
           />
         </div>
-      )}
+)}
+
+      {/* // )} */}
     </>
   );
 };

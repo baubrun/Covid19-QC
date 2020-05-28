@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component should match render snapShot 1`] = `
+<div
+  class="container"
+>
+  <div
+    data-test="Title"
+  >
+    <h3
+      class="text-center "
+    >
+      Situation du Coronavirus (COVID-19) au Québec
+    </h3>
+  </div>
+  <div
+    class="data"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col"
+      />
+      <div
+        class="col"
+      />
+    </div>
+    <div
+      data-test="RegionList"
+    >
+      <div
+        class="input-group"
+      >
+        <select
+          class="custom-select mt-3"
+        >
+          <option
+            value="Total"
+          >
+            Régions
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App component should match shallow snapShot 1`] = `
+<div
+  className="container"
+>
+  <Title
+    title="Situation du Coronavirus (COVID-19) au Québec"
+  />
+  <div
+    className="Spinner"
+  >
+    <Spinner />
+  </div>
+</div>
+`;
