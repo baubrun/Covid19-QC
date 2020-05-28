@@ -10,7 +10,7 @@ cd flask-server && python app.py
 ### _Serveur dorsal_
 npm run start 
 
-_Démo_: https://youtu.be/1nmEG37TRJg
+_Démo_: https://youtu.be/XuniGMSo6ls
 
 ------------------------------------------------------------------
 <br>
@@ -28,4 +28,4 @@ cd flask-server && python app.py  <br />
 ### _Frontend server_
 npm run start 
 
-_Demo_ : https://youtu.be/1nmEG37TRJg
+_Demo_ : https://youtu.be/XuniGMSo6ls
