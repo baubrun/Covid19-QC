@@ -8,7 +8,7 @@ const mockData = [
 ]
 
 
-const getData = async () => {
+const getRegionNames = async () => {
     const response = await new Promise(resolve => {
         resolve(mockData)
     })
@@ -16,4 +16,4 @@ const getData = async () => {
 }
 
 
-export default getData
+export default getRegionNames

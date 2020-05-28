@@ -1,54 +1,54 @@
 import React, { Component } from "react";
-import { RegionList } from "./components/RegionList";
-import Loader from "react-loader-spinner";
-import { Card } from "./components/Card";
-import BarChart from "./components/BarChart/BarChart";
-import "./App.css";
-import { Title } from "./components/Title";
-import { getData, getRegionData } from "../../components/api";
-
-
+import { getRegionNames } from "../../components/api";
+import { RegionList } from "../RegionList";
 
 export class RegionListContainer extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            data: [],
-            date: "",
-            loading: false,
-            region: "Total",
-            currentData: [],
-          };
-        }
-          componentDidMount() {
-        this.fetchData();
-      }
-    
-      fetchData = async () => {
-        this.setState({
-          loading: true,
-        });
-    
-        try {
-          const body = await getData();
-          this.setState({
-            data: body,
-          });
-          setTimeout(() => {
-            this.setState({ loading: false });
-            }, 900);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      regions: [],
+      loading: false
+    };
+  }
+  componentDidMount() {
+    this.FetchRegions();
+  }
+
+  FetchRegions = async () => {
+    this.setState({
+      loading: true,
+    });
+
+    try {
+      const regions = await getRegionNames();
+      console.log("FetchRegions :>> ", regions);
+      this.setState({
+        regions,
+      });
+      setTimeout(() => {
+        this.setState({ loading: false });
+      }, 900);
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  regionChange = (event) => {
+    const region = event.target.value;
+    this.props.fetchData(region);
+  };
+
+  render() {
+    const { loading, regions } = this.state;
+    return (
+      <RegionList
+        loading={loading}
+        regions={regions}
+        regionChange={this.regionChange}
+      />
+    );
+  }
 }
 
-export default RegionListContainer
+export default RegionListContainer;

@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import "./RegionList.css";
 
 
-const RegionList = ({ data, regionChange, loading }) => {
+const RegionList = ({ regions, regionChange, loading }) => {
+  console.log("RegionList", regions);
   return (
     <>
       {!loading && (
@@ -13,9 +14,9 @@ const RegionList = ({ data, regionChange, loading }) => {
             <option value="">
               Régions
             </option>
-            {data.map((d, idx) => (
-              <option key={idx} value={d.région}>
-                {d.région}
+            {regions.map((region, idx) => (
+              <option key={idx} value={region}>
+                {region}
               </option>
             ))}
           </select>
