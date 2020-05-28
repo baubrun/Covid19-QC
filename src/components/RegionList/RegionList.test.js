@@ -35,6 +35,14 @@ describe("RegionList Component", () => {
     });
   });
 
+    it("should render NO errors", () => {
+      const component = wrapper.find(".input-group");
+      expect(component.length).toBe(1);
+    
+  });
+
+
+
   describe("Matching Text", () => {
     console.log(wrapper);
   });

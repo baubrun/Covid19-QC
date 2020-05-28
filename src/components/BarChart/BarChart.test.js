@@ -29,7 +29,7 @@ describe("BarChart Component", () => {
 
 
   it("should render NO errors", () => {
-    const component = wrapper.find("BarChart");
+    const component = wrapper.find(".BarChart");
     expect(component.length).toBe(1);
   });
 
