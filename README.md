@@ -16,7 +16,7 @@ _Démo_: https://youtu.be/XuniGMSo6ls
 <br>
 
 ### Coronavirus QC
-I built a web scrapper and Api that presents the latest status of Coronavirus in Quebec.<br>
+I built a web scrapper and API that presents the latest status of Coronavirus in Quebec.<br>
 Backend technology: Python and Flask <br>
 Frontend technology: React <br>
 
