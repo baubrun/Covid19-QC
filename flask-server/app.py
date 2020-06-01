@@ -1,26 +1,14 @@
-# from flask import Flask, jsonify
-# from covid_data import data 
-
-# app = Flask(__name__)
-# app.config["JSON_AS_ASCII"] = False
-
-# @app.route("/covid19qc/api", methods=["GET"])
-# def api():
-#     response = jsonify(data)
-#     response.headers.add("Access-Control-Allow-Origin", "*")
-#     return response
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
 from flask import Flask, jsonify, abort
 from covid_data import data 
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../build", static_url_path="/")
 app.config["JSON_AS_ASCII"] = False
 cors = CORS(app, supports_credentials=True)
+
+@app.route("/")
+def index():
+    return app.send_static_file("index.html")
 
 
 @app.route("/covid19qc/api", methods=["GET"])
