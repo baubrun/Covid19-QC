@@ -15,6 +15,9 @@ url = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situa
 
 # %%
 resp = requests.get(url)
+
+
+# %%
 # resp
 
 
@@ -39,47 +42,33 @@ table = soup.find("table")
 
 
 # %%
-p_tag_in_table = table.find_all("p")
+# p_tag_in_table = table.find_all("p")
 
 
 # %%
-# pprint(p_tag_in_table)
+def get_p_tags(data):
+    return [str(i) for i in data.find_all("p")]
 
 
 # %%
-# p_tag_in_table[1]
+confirmes_p_tags = get_p_tags(table)
 
 
 # %%
-# type(p_tag_in_table)
+# confirmes_p_tags
 
 
 # %%
-donnees_en_chaine = [str(tag) for tag in table.findAll(re.compile("p"))]
+def find_line(d):
+    l = []
+    for i in range(len(d)):
+        if d[i].startswith("<p>Données cumulatives"):
+            l.append(d[i])
+    return l[0]
 
 
 # %%
-# donnees_en_chaine
-
-
-# %%
-date_str = donnees_en_chaine[2]
-
-
-# %%
-total_confirmes_str = donnees_en_chaine[-1]
-
-
-# %%
-# total_confirmes_str
-
-
-# %%
-total_confirmes = int("".join(re.findall("\d+",total_confirmes_str ))) 
-
-
-# %%
-# total_confirmes
+date_str = find_line(confirmes_p_tags)
 
 
 # %%
@@ -103,7 +92,7 @@ date_str_decode_utf8 = date_str_ignore_ascii.decode("UTF8")
 
 
 # %%
-date_str_regex = re.compile("(\s+\d{2}\s+\w+\?\d{4})")
+date_str_regex = re.compile("(\s?\d{2}\W\w+\W\d{4})")
 
 
 # %%
@@ -127,17 +116,17 @@ date = " ".join(date_found[0].split("?"))
 
 
 # %%
-donnees_nommees = donnees_en_chaine[3:]
+donnees_confirmes = confirmes_p_tags[3:]
 
 
 # %%
-# donnees_nommees
+# donnees_confirmes
 
 # %% [markdown]
 # #### Slice Regions
 
 # %%
-slice_regions = donnees_nommees[::2]
+slice_regions = donnees_confirmes[0::2]
 
 
 # %%
@@ -174,7 +163,11 @@ regions = regex_regions(slice_regions)
 # #### Slice Confirmés
 
 # %%
-slice_confirmes = donnees_nommees[1::2]
+# donnees_confirmes[1::2]
+
+
+# %%
+slice_confirmes = donnees_confirmes[1::2]
 
 
 # %%
@@ -199,17 +192,17 @@ def nombre_de_cas(c):
 
 
 # %%
-confirmes = nombre_de_cas(slice_confirmes)
+confirmes = nombre_de_cas(donnees_confirmes[1::2]) # error
 
 
 # %%
-# confirmes
+confirmes
 
 # %% [markdown]
 # #### Régions Aleat
 
 # %%
-# total 21
+# # total 21
 # len(confirmes)
 
 # %% [markdown]
@@ -232,33 +225,20 @@ donnees_deces = soup_deces[2]
 
 
 # %%
-# donnees_deces
+donnees_deces
 
 
 # %%
-# p_tag_deces = soup_deces.findall("p")
-p_tag_deces = [str(i) for i in donnees_deces.find_all("p")]
 
-
-# %%
-# p_tag_deces
 
 
 # %%
-total_p_tag_deces = p_tag_deces[-1]
+p_tag_deces = get_p_tags(donnees_deces)
+# p_tag_deces = [str(i) for i in donnees_deces.find_all("p")]
 
 
 # %%
-# total_p_tag_deces
-
-
-# %%
-p_tag_deces = p_tag_deces[3:]
-
-
-# %%
-# cas_de_deces = p_tag_deces[1::2]
-# p_tag_deces[1::2]
+# p_tag_deces[4::2]
 
 
 # %%
@@ -266,7 +246,7 @@ p_tag_deces = p_tag_deces[3:]
 
 
 # %%
-deces = nombre_de_cas(p_tag_deces[1::2])
+deces = nombre_de_cas(p_tag_deces[4::2])
 
 
 # %%
@@ -286,4 +266,8 @@ for i in range(len(confirmes)):
 
 # %%
 data = donnees_covid 
+
+
+# %%
+data
 

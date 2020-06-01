@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let url = "http://localhost:5000/covid19qc/api"
+let url = "http://localhost:5000/api"
 
 
 

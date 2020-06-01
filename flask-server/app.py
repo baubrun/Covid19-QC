@@ -6,15 +6,18 @@ app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
 cors = CORS(app, supports_credentials=True)
 
+@app.route("/")
+def index():
+    return jsonify("server running...")
 
 
-@app.route("/covid19qc/api", methods=["GET"])
+@app.route("/api", methods=["GET"])
 def api():
     return jsonify({"c19qc": data})
 
 
 
-@app.route("/covid19qc/api/<string:region>", methods=["GET"])
+@app.route("/api/<string:region>", methods=["GET"])
 def get_region(region):
     cd = [d for d in data if d["région"] == region]
     if len(data) == 0:
