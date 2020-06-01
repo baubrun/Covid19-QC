@@ -2,13 +2,10 @@ from flask import Flask, jsonify, abort
 from covid_data import data 
 from flask_cors import CORS
 
-app = Flask(__name__, static_folder="../build", static_url_path="/")
+app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
 cors = CORS(app, supports_credentials=True)
 
-@app.route("/")
-def index():
-    return app.send_static_file("index.html")
 
 
 @app.route("/covid19qc/api", methods=["GET"])
