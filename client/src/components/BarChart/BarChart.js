@@ -19,7 +19,7 @@ const BarChart = ({ data }) => {
                     "rgba(35, 87, 137, 0.7)",
                     "rgba(193, 41, 46, 0.8)",
                   ],
-                  data: [data[0].confirmés, data[0].décès],
+                  data: [data[0].confirmes, data[0].deces],
                 },
               ],
             }}

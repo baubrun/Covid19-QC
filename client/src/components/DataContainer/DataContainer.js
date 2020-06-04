@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { RegionListContainer } from "../RegionListContainer";
 import { fetchDataApi } from "../api";
 import { Card } from "../Card";
-import { BarChart } from "../BarChart/";
+import { BarChart } from "../BarChart";
 
 class DataContainer extends Component {
   constructor(props) {
@@ -31,12 +31,12 @@ class DataContainer extends Component {
           <Card
             data={this.state.data}
             title="Nombre de cas confirmés par région"
-            type="confirmés"
+            type="confirmes"
           />
           <Card
             data={this.state.data}
             title="Nombre de décès par région"
-            type="décès"
+            type="deces"
           />
         </div>
 

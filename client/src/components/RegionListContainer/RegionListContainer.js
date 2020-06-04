@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getRegionNames } from "../../components/api";
+import { getRegionNames } from "../api";
 import { RegionList } from "../RegionList";
 import Spinner from "../Spinner/Spinner";
 

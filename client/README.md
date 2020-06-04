@@ -10,7 +10,7 @@ cd flask-server && python app.py
 ### _Serveur dorsal_
 npm run start 
 
-_Démo_: https://youtu.be/XuniGMSo6ls
+_Démo_: https://5ed5b23e661e51327820a6dd--wizardly-beaver-7c9243.netlify.app/
 
 ------------------------------------------------------------------
 <br>
@@ -28,4 +28,4 @@ cd flask-server && python app.py  <br />
 ### _Frontend server_
 npm run start 
 
-_Demo_ : https://youtu.be/XuniGMSo6ls
+_Demo_ : https://5ed5b23e661e51327820a6dd--wizardly-beaver-7c9243.netlify.app/

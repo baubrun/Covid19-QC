@@ -92,7 +92,7 @@ date_str_decode_utf8 = date_str_ignore_ascii.decode("UTF8")
 
 
 # %%
-date_str_regex = re.compile("(\s?\d{2}\W\w+\W\d{4})")
+date_str_regex = re.compile("\d{1,2}\W\w+\W\d{4}")
 
 
 # %%
@@ -260,8 +260,8 @@ deces = nombre_de_cas(p_tag_deces[4::2])
 # %%
 donnees_covid = []
 for i in range(len(confirmes)):
-    donnees_covid.append(dict(confirmés=confirmes[i], date=date,
-                  décès=deces[i],  région=regions[i]))
+    donnees_covid.append(dict(confirmes=confirmes[i], date=date,
+                  deces=deces[i],  region=regions[i]))
 
 
 # %%

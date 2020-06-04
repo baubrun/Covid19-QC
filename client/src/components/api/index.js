@@ -1,13 +1,13 @@
 import axios from "axios";
 
-let url = "http://localhost:5000/api"
+let url = "https://cov19qc.herokuapp.com/api"
 
 
 
 
 export const getRegionNames = async () => {
     const resp = await axios.get(url);
-    const regions =  resp.data.c19qc.map(d => d.région)
+    const regions =  resp.data.c19qc.map(d => d.region)
     return regions
 }
 
@@ -16,7 +16,6 @@ export const fetchDataApi = async (region) => {
     const newUrl =  url + "/" + region;
 
     const resp = await axios.get(newUrl);
-    console.log("fetchDataApi", resp.data.c19qc)
     return resp.data.c19qc
 }
 
