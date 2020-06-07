@@ -1,3 +1,4 @@
+
 ### Coronavirus QC
 
 J'ai construit un outil de scraping et un API qui présente le statut du Coronavirus au Québec.<br>
@@ -9,6 +10,8 @@ cd flask-server && python app.py
 
 ### _Serveur dorsal_
 npm run start 
+
+### L'application pourrait être en veille. S'il y a un délai, veuillez actualiser la page.
 
 _Démo_: https://wizardly-beaver-7c9243.netlify.app/
 
@@ -27,5 +30,7 @@ cd flask-server && python app.py  <br />
 
 ### _Frontend server_
 npm run start 
+
+### The app could be sleeping. If there is a delay, please refresh the page.
 
 _Demo_ : https://wizardly-beaver-7c9243.netlify.app/
