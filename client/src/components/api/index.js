@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// let url = "https://cov19qc.herokuapp.com/api"
-let url = "http://localhost:4000"
+let url = " https://qc-covid19.herokuapp.com"
 
 
 
