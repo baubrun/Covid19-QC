@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { RegionListContainer } from "../RegionListContainer";
-import { fetchDataApi } from "../api";
+import { fetchDataApi, fetchDate } from "../api";
 import { Card } from "../Card";
 import { BarChart } from "../BarChart";
 
@@ -9,9 +9,15 @@ class DataContainer extends Component {
     super(props);
 
     this.state = {
-      data: []
+      data: {},
+      date: "",
     };
   }
+
+  componentDidMount() {
+    this.fetchDate();
+  }
+
 
   fetchData = async (region) => {
     try {
@@ -24,16 +30,30 @@ class DataContainer extends Component {
     }
   };
 
+  fetchDate = async () => {
+    try {
+      const date = await fetchDate();
+      this.setState({
+        date
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     return (
       <div className=" container data">
         <div className="row">
           <Card
+            date={this.state.date}
             data={this.state.data}
             title="Nombre de cas confirmés par région"
             type="confirmes"
+            region={this.state.data}
           />
           <Card
+            date={this.state.date}
             data={this.state.data}
             title="Nombre de décès par région"
             type="deces"

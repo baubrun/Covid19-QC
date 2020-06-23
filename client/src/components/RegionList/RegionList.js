@@ -10,7 +10,7 @@ const RegionList = ({ regions, regionChange, loading }) => {
         <div id="list" 
         className="input-group">
           <select className="custom-select mt-3" onChange={regionChange}>
-            <option value="">
+            <option value="Total">
               Régions
             </option>
             {regions.map((region, idx) => (
@@ -26,8 +26,8 @@ const RegionList = ({ regions, regionChange, loading }) => {
 };
 
 RegionList.propTypes = {
-  data: PropTypes.array,
   regionChange: PropTypes.func,
+  regions: PropTypes.array,
   loading: PropTypes.bool
 };
 

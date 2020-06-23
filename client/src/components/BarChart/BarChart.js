@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const BarChart = ({ data }) => {
   return (
     <>
-      {data.length < 1 ? ""
+      {Object.keys(data).length < 1 ? ""
         : (
         <div className="BarChart">
           <Bar
@@ -19,7 +19,7 @@ const BarChart = ({ data }) => {
                     "rgba(35, 87, 137, 0.7)",
                     "rgba(193, 41, 46, 0.8)",
                   ],
-                  data: [data[0].confirmes, data[0].deces],
+                  data: [data.confirmes, data.deces],
                 },
               ],
             }}
@@ -40,7 +40,7 @@ const BarChart = ({ data }) => {
 };
 
 BarChart.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.object,
 };
 
 export default BarChart;
