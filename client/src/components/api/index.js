@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let url = " https://qc-covid19.herokuapp.com"
+let url = ""
 
 
 
