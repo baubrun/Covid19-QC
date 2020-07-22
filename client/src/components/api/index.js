@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let url = ""
+let url = "https://qc-covid19.herokuapp.com"
 
 
 
@@ -25,13 +25,5 @@ export const fetchDate =  () => {
     const date = `${day}/${month + 1}/${year}`
     return date
 }
-
-
-// export const fetchDate = async () => {
-//     const day = new Date().getDate()
-//     const month = new Date().getMonth()
-//     const year = new Date().getFullYear()
-//     const date = `${day}/${month + 1}/${year}`
-// }
 
 
