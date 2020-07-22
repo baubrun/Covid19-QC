@@ -18,10 +18,20 @@ export const fetchDataApi = async (id) => {
 }
 
 
-export const fetchDate = async () => {
-    const newUrl =  url + "/date" ;
-    const date = await axios.get(newUrl);
-    return date.data
+export const fetchDate =  () => {
+    const day = new Date().getDate()
+    const month = new Date().getMonth()
+    const year = new Date().getFullYear()
+    const date = `${day}/${month + 1}/${year}`
+    return date
 }
+
+
+// export const fetchDate = async () => {
+//     const day = new Date().getDate()
+//     const month = new Date().getMonth()
+//     const year = new Date().getFullYear()
+//     const date = `${day}/${month + 1}/${year}`
+// }
 
 

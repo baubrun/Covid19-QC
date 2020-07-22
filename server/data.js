@@ -7,11 +7,6 @@ const cas_confirmes_url = "https://cdn-contenu.quebec.ca/cdn-contenu/sante/docum
 const cas_deces_url = "https://cdn-contenu.quebec.ca/cdn-contenu/sante/documents/Problemes_de_sante/covid-19/csv/deces-region.csv"
 
 let data = {}
-const getDate = async(dt) => {
-    const regex = /\d+\s\w+(?=,)/
-    const found = dt[1].match(regex)
-    data.date = `${found[0]} 2020`
-}
 
 
 
@@ -22,7 +17,6 @@ const getRegions = async (d) => {
         trim: true
     })
     let regionData = parsed
-    getDate(regionData.slice(0)[0])
 
     let namesOnly = regionData.map(i => i[0] = i[0].split(/\d+\s-\s/))
     for (let i = 1; i < namesOnly.length; i++) {
